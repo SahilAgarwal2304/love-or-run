@@ -1,0 +1,94 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Segoe UI', cursive, sans-serif;
+  background: linear-gradient(135deg, #ffdee9, #ffc3a0);
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #b30059;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 24px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+#yesBtn {
+  font-size: 1.2em;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background-color: #ff6699;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+}
+
+#yesBtn:hover {
+  background-color: #ff3366;
+}
+
+#noBtn {
+  font-size: 1.2em;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background-color: #999;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: fixed; /* Key: allow movement anywhere */
+  left: 50%;       /* Will be set by JS on load */
+  top: 55%;        /* Will be set by JS on load */
+  z-index: 2;
+  transition: left 0.4s cubic-bezier(.68,-0.55,.27,1.55), top 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+#noBtn:hover {
+  background-color: #bbb;
+}
+
+@keyframes heartFall {
+  0% {
+    transform: translateY(-60px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.heart {
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #ff3366;
+  font-size: 2em;
+  animation: heartFall 2.5s linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
